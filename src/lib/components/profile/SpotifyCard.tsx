@@ -10,8 +10,6 @@ import { SongProps, SpotifyProps } from '@/lib/models/props'
 import { truncate } from '@/lib/utils'
 
 export const SpotifyCard = ({ defaultUrl, defaultTitle }: SongProps) => {
-    var isPlaying = false
-
     const { data } = useSWRSubscription<SpotifyProps, any>(process.env.WS_ENDPOINT ?? 'ws://localhost:8080', (key: string | URL, { next }: any) => {
         const socket = new WebSocket(key)
 
@@ -26,7 +24,6 @@ export const SpotifyCard = ({ defaultUrl, defaultTitle }: SongProps) => {
     if(data && data.is_playing) {
         defaultUrl = data.item.external_urls.spotify
         defaultTitle = data.item.name
-        isPlaying = data.is_playing
     }
     
     return(
