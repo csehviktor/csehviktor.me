@@ -46,7 +46,7 @@ export default function() {
                                     )
                                 }) }
                                 
-                                { category.list?.toReversed().map((item) => {
+                                { category.list?.slice().reverse().map((item) => {
                                     return(
                                         <Dropdown key={item.id} title={item.title} subtitle={item.subtitle}>
                                             <div className="ml-3 -mt-3">
