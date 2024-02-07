@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply bg-[#f2f3f5] dark:bg-[#101010] overflow-y-scroll
+    }
+
+
+    html {
+        scrollbar-width: thin;
+        scrollbar-color: #5c5c5c transparent;
+    }
+
+    strong {
+        display: contents;
+    }
+}
+
+@layer components {
+    ::-webkit-scrollbar {
+        width: 3px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background-color: #5c5c5c;
+        border-radius: 10px;
+    }
+}
