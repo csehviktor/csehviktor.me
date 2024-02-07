@@ -1,29 +1,32 @@
 'use client'
 
 import Link from 'next/link'
-import useSWRSubscription from 'swr/subscription'
+import useSWRSubscription, { SWRSubscriptionOptions } from 'swr/subscription'
 import { RiMusicFill  } from 'react-icons/ri'
 import { Icon } from '@/lib/components/common/Icon'
 import { Description } from '@/lib/components/common/Description'
 import { GoofyFont } from '@/lib/components/common/GoofyFont'
 import { SongProps, SpotifyProps } from '@/lib/models/props'
 import { truncate } from '@/lib/utils'
+import { useState } from 'react'
 
 export const SpotifyCard = ({ defaultUrl, defaultTitle }: SongProps) => {
-    const { data } = useSWRSubscription<SpotifyProps, any>(process.env.WS_ENDPOINT ?? 'ws://localhost:8080', (key: string | URL, { next }: any) => {
+    const [ spotify, setSpotify ] = useState<SpotifyProps>()
+
+    useSWRSubscription<SpotifyProps>(process.env.WS_ENDPOINT ?? 'ws://localhost:8080', (key: string | URL, { next }: SWRSubscriptionOptions) => {
         const socket = new WebSocket(key)
 
         socket.onopen = () => socket.send('HELP')
-        socket.onmessage = (event) => next(null, JSON.parse(event.data))
+        socket.onmessage = (event) => next(null, setSpotify(JSON.parse(event.data)))
 
         return () => {
             if (socket.readyState === 1) socket.close()
         }  
     })
 
-    if(data && data.is_playing) {
-        defaultUrl = data.item.external_urls.spotify
-        defaultTitle = data.item.name
+    if(spotify && spotify.is_playing) {
+        defaultUrl = spotify.item.external_urls.spotify
+        defaultTitle = spotify.item.name
     }
     
     return(
