@@ -19,8 +19,6 @@ export interface DropdownModel extends Children, ClassName {
     subtitle: string
 }
 
-export interface AvatarModel extends ClassName { }
-
 export interface IconModel extends IconProps, ClassName { }
 
 export interface DescriptionModel extends Children, ClassName { }
