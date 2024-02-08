@@ -1,6 +1,6 @@
 import type { IconType } from 'react-icons'
 import type { Socials } from '@/lib/models/variants'
-import { Metadata, Viewport } from 'next'
+import type { Metadata, Viewport } from 'next'
 
 export interface SpotifyProps {
     item: {
