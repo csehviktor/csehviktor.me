@@ -1,23 +1,24 @@
 'use client'
 
-import Link from 'next/link'
-import useSWRSubscription, { SWRSubscriptionOptions } from 'swr/subscription'
+import type { SWRSubscriptionOptions } from 'swr/subscription'
+import type { SongProps, SpotifyProps } from '@/lib/models/props'
 import { RiMusicFill  } from 'react-icons/ri'
 import { Icon } from '@/lib/components/common/Icon'
 import { Description } from '@/lib/components/common/Description'
 import { GoofyFont } from '@/lib/components/common/GoofyFont'
-import { SongProps, SpotifyProps } from '@/lib/models/props'
 import { truncate } from '@/lib/utils'
 import { useState } from 'react'
+import Link from 'next/link'
+import useSWRSubscription from 'swr/subscription'
 
 export const SpotifyCard = ({ defaultUrl, defaultTitle }: SongProps) => {
     const [ spotify, setSpotify ] = useState<SpotifyProps>()
 
-    useSWRSubscription<SpotifyProps>(process.env.WS_ENDPOINT ?? 'ws://localhost:8080', (key: string | URL, { next }: SWRSubscriptionOptions) => {
+    useSWRSubscription(process.env.WS_ENDPOINT ?? 'ws://localhost:8080', (key: string | URL, { next }: SWRSubscriptionOptions) => {
         const socket = new WebSocket(key)
 
         socket.onopen = () => socket.send('HELP')
-        socket.onmessage = (event) => next(null, setSpotify(JSON.parse(event.data)))
+        socket.onmessage = ({ data }: { data: string }) => next(null, setSpotify(JSON.parse(data) as SpotifyProps))
 
         return () => {
             if (socket.readyState === 1) socket.close()
