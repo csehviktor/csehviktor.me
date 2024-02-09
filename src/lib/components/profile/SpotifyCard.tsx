@@ -14,7 +14,7 @@ import useSWRSubscription from 'swr/subscription'
 export const SpotifyCard = ({ defaultUrl, defaultTitle }: SongProps) => {
     const [ spotify, setSpotify ] = useState<SpotifyProps>()
 
-    useSWRSubscription(process.env.WS_ENDPOINT ?? 'ws://localhost:8080', (key: string | URL, { next }: SWRSubscriptionOptions) => {
+    useSWRSubscription(process.env.WS_ENDPOINT ?? 'ws://localhost:1337', (key: string | URL, { next }: SWRSubscriptionOptions) => {
         const socket = new WebSocket(key)
 
         socket.onopen = () => socket.send('HELP')
