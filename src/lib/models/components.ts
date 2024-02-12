@@ -3,7 +3,7 @@ import type { IconProps } from '@/lib/models/props'
 import type { Headers } from '@/lib/models/variants'
 
 export interface Children {
-    children?: ReactNode
+    children?: Readonly<ReactNode>
 }
 
 export interface ClassName {
