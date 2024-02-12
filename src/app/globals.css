@@ -7,7 +7,6 @@
         @apply bg-[#f2f3f5] dark:bg-[#101010] overflow-y-scroll
     }
 
-
     html {
         scrollbar-width: thin;
         scrollbar-color: #5c5c5c transparent;

@@ -10,7 +10,7 @@ import '@/app/globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function({children}: Children) {
+export default function({ children }: Children) {
     return (
         <html lang="zxx" suppressHydrationWarning>
             <body className={inter.className}>
