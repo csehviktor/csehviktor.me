@@ -1,32 +1,17 @@
-import type { Children } from '@/lib/models/components'
-import { Inter } from 'next/font/google'
-import { Margin } from '@/lib/components/Margin'
-import { Navbar } from '@/lib/components/Navbar'
-import { Switcher } from '@/lib/components/Switcher'
-import { SpotifyCard } from '@/lib/components/profile/SpotifyCard'
-import { globalData, navbarItems, siteProperties } from '@/lib/globals'
-import Providers from '@/app/providers'
+import type { Children } from '@/lib/models/elements'
+import { siteProperties } from '@/lib/globals'
+import { VT323 } from 'next/font/google'
 import '@/app/globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
+const font = VT323({ subsets: ['latin'], weight: '400' })
 
-export default function({ children }: Children) {
+export default function Layout({ children }: Children) {
     return (
-        <html lang="zxx" suppressHydrationWarning>
-            <body className={inter.className}>
-                <Providers>
-                    <Margin>
-                        <div className="min-w-full flex items-center justify-between">
-                            <SpotifyCard
-                                defaultUrl={globalData.socials[2].url ?? 'https://open.spotify.com/'}
-                                defaultTitle='nothing'
-                            />
-                            <Switcher />
-                        </div>
-                        { children }
-                    </Margin>
-                </Providers>
-                <Navbar items={navbarItems} />
+        <html lang='zxx'>
+            <body className={font.className}>
+                <div className='flex justify-center'>
+                    { children }
+                </div>
             </body>
         </html>
     )

@@ -4,16 +4,9 @@
 
 @layer base {
     body {
-        @apply bg-[#f2f3f5] dark:bg-[#101010] overflow-y-scroll
-    }
-
-    html {
-        scrollbar-width: thin;
-        scrollbar-color: #5c5c5c transparent;
-    }
-
-    strong {
-        display: contents;
+        background-color: #000;
+        color: #fff;
+        overflow-x: hidden;
     }
 }
 
@@ -25,5 +18,20 @@
     ::-webkit-scrollbar-thumb {
         background-color: #5c5c5c;
         border-radius: 10px;
+    }
+
+    .fade-in-animation {
+        animation: animation 0.6s ease-in-out both;
+    }
+}
+
+@keyframes animation {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
     }
 }

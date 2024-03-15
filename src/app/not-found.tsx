@@ -1,14 +1,10 @@
-import { Description } from '@/lib/components/common/Description'
-import { Header } from '@/lib/components/common/Header'
-import { Headers } from '@/lib/models/variants'
+import { ImageWrapper } from '@/lib/components/wrapper/ImageWrapper'
 
-export default function() {
-    return(
-        <div className="flex flex-col items-center my-52">
-            <Header type={Headers.TITLE}>status <span className="text-red-500">404</span></Header>
-            <Description className="text-xl lg:text-3xl">
-                page was not found
-            </Description>
+export default function NotFound() {
+    return (
+        <div className='w-full h-svh flex flex-col justify-center items-center'>
+            <ImageWrapper src='./notfound.jpg' className='max-w-xl m-7 w-11/12 h-1/2'/>
+            <h1 className='text-8xl'>404</h1>
         </div>
     )
 }
