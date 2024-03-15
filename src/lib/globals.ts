@@ -1,4 +1,4 @@
-import type { BaseSection, HeaderSection, HeaderSection, SiteProp } from '@/lib/models/props'
+import type { BaseSection, HeaderSection, SiteProp } from '@/lib/models/props'
 import { TbBrandTypescript, TbBrandKotlin, TbBrandNextjs, TbBrandVue, TbBrandTailwind, TbBrandMongodb } from 'react-icons/tb'
 import { FaSpotify, FaGithub, FaInstagram } from 'react-icons/fa'
 import { RiJavascriptLine } from 'react-icons/ri'
