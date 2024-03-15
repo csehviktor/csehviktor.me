@@ -13,13 +13,12 @@ export const siteProperties: SiteProp = {
         title: 'csehviktor.me',
         description: `A(n) ${ calculateAge() }-year-old university student from Hungary`,
         openGraph: {
-            images: './og_image.jpg',
-            title: 'csehviktor.me',
+            title: '@csehviktor',
             url: 'https://csehviktor.me',
-        }
+        },
     },
     viewport: {
-        themeColor: '#1da842'
+        themeColor: '#000000'
     }
 }
 
