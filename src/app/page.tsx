@@ -42,7 +42,7 @@ export default function Home() {
                                         if(typeof line === 'object') {
                                             return (
                                                 <Icon
-                                                    key={randomizeKey(line)}
+                                                    key={randomizeKey(line.icon.length)}
                                                     source={line}
                                                     className='mr-3 my-3 inline-block text-4xl sm:text-5xl transition-transform duration-300 hover:scale-110' 
                                                 />
