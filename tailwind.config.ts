@@ -6,7 +6,7 @@ const config: Config = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   plugins: [
-    'tailwindcss-animation-delay'
+    require('tailwindcss-animation-delay')
   ],
 }
 export default config
