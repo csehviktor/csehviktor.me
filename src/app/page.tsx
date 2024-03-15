@@ -55,7 +55,7 @@ export default function Home() {
                             <CardWrapper className='flex flex-wrap md:flex-nowrap fade-in-animation animation-delay-700'>
                                 { section.card?.map(card => {
                                     return(
-                                        <Card key={randomizeKey(card.title)} color={card.color}>
+                                        <Card key={randomizeKey(card.title)} color={card.color ?? 'transparent'}>
                                             <div className='flex items-center gap-2'>
                                                 { 
                                                     card.icon ? <Icon source={card.icon} className='w-7 h-7 mt-[1px]'/> : <></>
