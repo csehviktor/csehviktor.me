@@ -5,12 +5,13 @@ export const calculateAge = (): number => {
     return Math.floor(new Date(now - then).getUTCFullYear() - 1970)
 }
 
-export const parseURL = (url: string) => {
-    return url.substring(url.lastIndexOf('/'))
+export const randomizeKey = (param: string | number): number => {
+    const additive = typeof param === 'string' 
+        ? param.length 
+        : param
+    
+    return Math.ceil(Date.now() * Math.random()) + additive
 }
 
-export const randomizeKey = (str: string): number => {
-    return Math.random() * str.length
-}
-
+export const parseURL = (str: string) => str.startsWith('https://') ? str.substring(str.lastIndexOf('/')) : str
 export const truncate = (str: string, n: number) => str.length > n ? str.slice(0, n - 1) + '...' : str
