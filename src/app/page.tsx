@@ -16,8 +16,8 @@ export default function Home() {
                     size={10}
                     className='rounded-3xl' 
                 />
-                <div className='flex flex-col'>
-                    <h1 className='text-5xl md:text-6xl'>Cseh Viktor</h1>
+                <div className='flex flex-col items-center md:items-start'>
+                    <h1 className='text-5xl md:text-6xl'>{ headerData.name }</h1>
                     <div className='text-[#5c5c5c]'>
                         { headerData.socials.map(social => {
                             return(
