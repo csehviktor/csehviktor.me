@@ -23,7 +23,7 @@ export const siteProperties: SiteProp = {
 }
 
 export const headerData: HeaderSection = {
-    avatar: './avatar.jpg',
+    avatar: '/avatar.jpg',
     name: 'Cseh Viktor',
     socials: [
         {
@@ -70,21 +70,21 @@ export const baseData: BaseSection[] = [
         card: [
             {
                 icon: {
-                    icon: './icons/flag_hu.svg',
+                    icon: '/icons/flag_hu.svg',
                 },
                 title: 'Hungarian',
                 description: 'mother tongue'
             },
             {
                 icon: {
-                    icon: './icons/flag_gb.svg',
+                    icon: '/icons/flag_gb.svg',
                 },
                 title: 'English',
                 description: 'fluent - C1 level (CEFR)'
             },
             {
                 icon: {
-                    icon: './icons/flag_it.svg',
+                    icon: '/icons/flag_it.svg',
                 },
                 title: 'Italian',
                 description: 'beginner - B1 level'
